@@ -1,0 +1,68 @@
+# TwistModeration Configuration
+# Professional moderation plugin for Paper servers
+
+# Chat Filter Settings
+chat-filter:
+  enabled: true
+  # Action to take when inappropriate language is detected
+  # Options: WARN, MUTE, KICK, BAN
+  action: WARN
+  # Notify staff when filter is triggered
+  notify-staff: true
+  # Block the message from being sent
+  block-message: true
+  # Custom message to show when content is blocked
+  blocked-message: "&c&l[TwistModeration] &7Your message contains inappropriate content and has been blocked."
+
+# Automatic Punishments
+auto-punishments:
+  # Auto-mute after X warnings
+  auto-mute:
+    enabled: true
+    warnings-threshold: 3
+    duration: 300 # seconds (5 minutes)
+  # Auto-kick after X warnings
+  auto-kick:
+    enabled: true
+    warnings-threshold: 5
+  # Auto-ban after X kicks
+  auto-ban:
+    enabled: true
+    kicks-threshold: 3
+    duration: 86400 # seconds (24 hours)
+
+# Messages
+messages:
+  prefix: "&c&l[TwistModeration] &r"
+  no-permission: "&cYou don't have permission to use this command."
+  player-not-found: "&cPlayer not found or not online."
+  player-already-muted: "&cPlayer is already muted."
+  player-not-muted: "&cPlayer is not muted."
+  mute-success: "&aSuccessfully muted &e{player} &afor: &f{reason}"
+  tempmute-success: "&aSuccessfully muted &e{player} &afor &e{duration} &afor: &f{reason}"
+  unmute-success: "&aSuccessfully unmuted &e{player}"
+  warn-success: "&aSuccessfully warned &e{player} &afor: &f{reason}"
+  kick-success: "&aSuccessfully kicked &e{player} &afor: &f{reason}"
+  tempban-success: "&aSuccessfully banned &e{player} &afor &e{duration} &afor: &f{reason}"
+  unban-success: "&aSuccessfully unbanned &e{player}"
+  clearchat-success: "&aChat has been cleared by &e{player}"
+  reload-success: "&aTwistModeration configuration reloaded successfully!"
+  
+  # Player messages
+  you-are-muted: "&cYou are currently muted. Reason: &f{reason}"
+  you-have-been-warned: "&c&l[WARNING] &r&cYou have been warned for: &f{reason}"
+  you-have-been-kicked: "&cYou have been kicked for: &f{reason}"
+  you-have-been-banned: "&cYou have been banned for: &f{reason}"
+
+# Database Settings (SQLite by default)
+database:
+  type: "sqlite"
+  file: "twistmoderation.db"
+
+# Staff Notification Settings
+staff-notifications:
+  enabled: true
+  # Minimum permission level to receive notifications
+  permission: "twistmoderation.admin"
+  # Format for staff notifications
+  format: "&e&l[STAFF] &r&7{action} &8» &f{target} &8(&7{reason}&8)"

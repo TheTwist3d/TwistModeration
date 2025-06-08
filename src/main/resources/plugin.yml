@@ -1,0 +1,100 @@
+name: TwistModeration
+version: '${project.version}'
+main: com.twistmoderation.TwistModeration
+api-version: '1.20'
+authors: [TwistModeration Team]
+description: Professional moderation plugin for Paper servers
+website: https://github.com/twistmoderation/TwistModeration
+
+commands:
+  mute:
+    description: Mute a player permanently
+    usage: /mute <player> [reason]
+    permission: twistmoderation.mute
+  tempmute:
+    description: Temporarily mute a player
+    usage: /tempmute <player> <duration> [reason]
+    permission: twistmoderation.tempmute
+  unmute:
+    description: Unmute a player
+    usage: /unmute <player>
+    permission: twistmoderation.unmute
+  clearchat:
+    description: Clear the chat
+    usage: /clearchat [lines]
+    permission: twistmoderation.clearchat
+  warn:
+    description: Warn a player
+    usage: /warn <player> <reason>
+    permission: twistmoderation.warn
+  kick:
+    description: Kick a player
+    usage: /kick <player> [reason]
+    permission: twistmoderation.kick
+  tempban:
+    description: Temporarily ban a player
+    usage: /tempban <player> <duration> [reason]
+    permission: twistmoderation.tempban
+  unban:
+    description: Unban a player
+    usage: /unban <player>
+    permission: twistmoderation.unban
+  history:
+    description: View a player's punishment history
+    usage: /history <player>
+    permission: twistmoderation.history
+  twistmoderation:
+    description: Main plugin command
+    usage: /twistmoderation [reload|help]
+    permission: twistmoderation.admin
+    aliases: [tm, twist]
+
+permissions:
+  twistmoderation.*:
+    description: All TwistModeration permissions
+    default: op
+    children:
+      twistmoderation.admin: true
+      twistmoderation.mute: true
+      twistmoderation.tempmute: true
+      twistmoderation.unmute: true
+      twistmoderation.clearchat: true
+      twistmoderation.warn: true
+      twistmoderation.kick: true
+      twistmoderation.tempban: true
+      twistmoderation.unban: true
+      twistmoderation.history: true
+      twistmoderation.bypass: true
+  twistmoderation.admin:
+    description: Administrative permissions
+    default: op
+  twistmoderation.mute:
+    description: Permission to mute players
+    default: op
+  twistmoderation.tempmute:
+    description: Permission to temporarily mute players
+    default: op
+  twistmoderation.unmute:
+    description: Permission to unmute players
+    default: op
+  twistmoderation.clearchat:
+    description: Permission to clear chat
+    default: op
+  twistmoderation.warn:
+    description: Permission to warn players
+    default: op
+  twistmoderation.kick:
+    description: Permission to kick players
+    default: op
+  twistmoderation.tempban:
+    description: Permission to temporarily ban players
+    default: op
+  twistmoderation.unban:
+    description: Permission to unban players
+    default: op
+  twistmoderation.history:
+    description: Permission to view punishment history
+    default: op
+  twistmoderation.bypass:
+    description: Bypass chat filter and mute restrictions
+    default: false
